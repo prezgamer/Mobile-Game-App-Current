@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public int starCount;
 
     WindSwipe playerSwipe;
+    CameraController theCam;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class LevelManager : MonoBehaviour
         starCount = 0;
 
         playerSwipe = FindObjectOfType<WindSwipe>();
+        theCam = FindObjectOfType<CameraController>();
 
         //by default, win and lose screens are set inactive at start
         winScreen.SetActive(false);
@@ -44,6 +46,7 @@ public class LevelManager : MonoBehaviour
     {
         loseScreen.SetActive(true);
         playerSwipe.losesGame = true;
+        theCam.followPlayer = false;
         //Time.timeScale = 0f;
     }
 
