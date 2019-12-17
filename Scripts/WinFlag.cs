@@ -6,9 +6,13 @@ public class WinFlag : MonoBehaviour
 {
     LevelManager theLM;
 
+    LevelSelection levelSelect;
+    public int levelToUnlocked;
+
     private void Start()
     {
         theLM = FindObjectOfType<LevelManager>();
+        levelSelect = FindObjectOfType<LevelSelection>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,6 +26,8 @@ public class WinFlag : MonoBehaviour
 
     public void WinGame()
     {
+        levelSelect.levelNum += 1;
+        PlayerPrefs.SetInt("Level Unlocked", levelToUnlocked);
         theLM.WinGame();
     }
 }

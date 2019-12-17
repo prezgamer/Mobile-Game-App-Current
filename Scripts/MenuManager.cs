@@ -38,6 +38,7 @@ public class MenuManager : MonoBehaviour
     public void LoadSelectedLevel(string selectedScene)
     {
         SceneManager.LoadScene(selectedScene);
+        Time.timeScale = 1f;
     }
 
     //quit the game

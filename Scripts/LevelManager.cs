@@ -66,7 +66,8 @@ public class LevelManager : MonoBehaviour
 
     public void BackToMain()
     {
-        Debug.Log("Going back to main");
+        SceneManager.LoadScene("Main Menu");
+        //Debug.Log("Going back to main");
     }
 
     public void Continue()
