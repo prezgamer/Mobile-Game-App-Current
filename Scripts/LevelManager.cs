@@ -6,7 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public Text starCountText; //text for now
+    [Header("Stars Variables")]
+    public Image star1;
+    public Image star2;
+    public Image star3;
+
+    public Sprite yellowStar;
+    public Sprite nullStar;
+    //public Text starCountText; //text for now
+
+    [Header("Screens")]
     public GameObject winScreen;
     public GameObject loseScreen;
 
@@ -39,7 +48,40 @@ public class LevelManager : MonoBehaviour
 
     public void UpdateStars()
     {
-        starCountText.text = "Stars: " + starCount + "/" + maxStars;
+        //starCountText.text = "Stars: " + starCount + "/" + maxStars;
+
+        switch (starCount)
+        {
+            case 0:
+                star1.sprite = nullStar;
+                star2.sprite = nullStar;
+                star3.sprite = nullStar;
+                break;
+
+            case 1:
+                star1.sprite = yellowStar;
+                star2.sprite = nullStar;
+                star3.sprite = nullStar;
+                break;
+
+            case 2:
+                star1.sprite = yellowStar;
+                star2.sprite = yellowStar;
+                star3.sprite = nullStar;
+                break;
+
+            case 3:
+                star1.sprite = yellowStar;
+                star2.sprite = yellowStar;
+                star3.sprite = yellowStar;
+                break;
+
+            default:
+                star1.sprite = nullStar;
+                star2.sprite = nullStar;
+                star3.sprite = nullStar;
+                break;
+        }
     }
 
     public void LoseGame()
