@@ -42,7 +42,7 @@ public class WindSwipe : MonoBehaviour
         //check if wind Power is more than 0
         if (windPower > 0 && canPush == true && losesGame == false)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved))
             {
                 CreateWind();
             }

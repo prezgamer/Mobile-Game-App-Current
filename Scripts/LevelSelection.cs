@@ -42,7 +42,7 @@ public class LevelSelection : MonoBehaviour
     {
         PlayerPrefs.GetInt("Level Unlocked", levelNum); //get the number of levels that are unlocked
 
-        Debug.Log("The number is " + PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]));
+        //Debug.Log("The number is " + PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]));
 
         //retreive the number of stars which player has gotten on each level
         PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]);
@@ -52,42 +52,45 @@ public class LevelSelection : MonoBehaviour
         PlayerPrefs.GetInt("Level 5 Stars", starsHighscore[4]);
         PlayerPrefs.GetInt("Level 6 Stars", starsHighscore[5]);
 
-        UpdateStars("Level 1 Stars");
-        UpdateStars("Level 2 Stars");
-        UpdateStars("Level 3 Stars");
-        UpdateStars("Level 4 Stars");
-        UpdateStars("Level 5 Stars");
-        UpdateStars("Level 6 Stars");
+        UpdateStars("Level 1 Stars", 0);
+        UpdateStars("Level 2 Stars", 1);
+        UpdateStars("Level 3 Stars", 2);
+        UpdateStars("Level 4 Stars", 3);
+        UpdateStars("Level 5 Stars", 4);
+        UpdateStars("Level 6 Stars", 5);
     }
 
-    void UpdateStars(string levelStars)
+    //update the number of stars gotton on each level
+    void UpdateStars(string levelStars, int levelNum)
     {
-        if (PlayerPrefs.GetInt(levelStars) == 0)
+        if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) == 0)
         {
-            stars1[0].sprite = emptyStar;
-            stars2[0].sprite = emptyStar;
-            stars3[0].sprite = emptyStar;
+            stars1[levelNum].sprite = emptyStar;
+            stars2[levelNum].sprite = emptyStar;
+            stars3[levelNum].sprite = emptyStar;
+            //Debug.Log("stars are empty at " + "Level " + (levelNum += 1));
         }
 
-        if (PlayerPrefs.GetInt(levelStars) == 1)
+        if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) == 1)
         {
-            stars1[0].sprite = filledStar;
-            stars2[0].sprite = emptyStar;
-            stars3[0].sprite = emptyStar;
+            stars1[levelNum].sprite = filledStar;
+            stars2[levelNum].sprite = emptyStar;
+            stars3[levelNum].sprite = emptyStar;
         }
 
-        if (PlayerPrefs.GetInt(levelStars) == 2)
+        if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) == 2)
         {
-            stars1[0].sprite = filledStar;
-            stars2[0].sprite = filledStar;
-            stars3[0].sprite = emptyStar;
+            stars1[levelNum].sprite = filledStar;
+            stars2[levelNum].sprite = filledStar;
+            stars3[levelNum].sprite = emptyStar;
         }
 
-        if (PlayerPrefs.GetInt(levelStars) >= 3)
+        if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) >= 3)
         {
-            stars1[0].sprite = filledStar;
-            stars2[0].sprite = filledStar;
-            stars3[0].sprite = filledStar;
+            stars1[levelNum].sprite = filledStar;
+            stars2[levelNum].sprite = filledStar;
+            stars3[levelNum].sprite = filledStar;
+           // Debug.Log("stars have been filled at " + "Level " + (levelNum += 1));
         }
 
     }
@@ -157,7 +160,7 @@ public class LevelSelection : MonoBehaviour
     }
     #endregion
 
-    #region Level PlayerPrefs Function
+    #region Level Unlock Functions
     //unlock the levels 
     void UnlockedLevels(GameObject unlockedLvl, GameObject lockedLvl)
     {
