@@ -19,8 +19,10 @@ public class WinFlag : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            WinGame();
-           // Debug.Log("Player has won game");
+            if (!theLM.gameIsLost)
+            {
+                WinGame();
+            } 
         }
     }
 

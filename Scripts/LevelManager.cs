@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
     [Header("Screens")]
     public GameObject winScreen;
     public GameObject loseScreen;
+    public bool gameIsLost = false;
 
     [Header("Stars Variables")]
     public static int totalStarCount;

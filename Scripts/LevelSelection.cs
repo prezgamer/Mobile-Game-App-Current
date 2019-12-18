@@ -35,7 +35,7 @@ public class LevelSelection : MonoBehaviour
     {
         UpdateLevels();
 
-        WarningsForArrays();
+       // WarningsForArrays();
     }
 
     void PlayerPrefsFunctions()
