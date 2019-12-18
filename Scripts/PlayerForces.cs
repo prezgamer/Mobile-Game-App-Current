@@ -30,7 +30,7 @@ public class PlayerForces : MonoBehaviour
         //check if the balloon has pop, in order for the crate to act normally, rather than having to float in mid air
         if (!theBalloon.hasPop)
         {
-            playerRb.velocity = new Vector2(forceMultiplyer * theWind.touchPosition.x, forceMultiplyer * theWind.touchPosition.y);
+            playerRb.velocity = new Vector2(forceMultiplyer * theWind.touchPosition.x * Time.deltaTime, forceMultiplyer * theWind.touchPosition.y * Time.deltaTime);
         } else if (theBalloon.hasPop)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y);
