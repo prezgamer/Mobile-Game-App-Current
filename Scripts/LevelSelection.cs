@@ -1,10 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
     public int levelNum;
+
+    public int[] starsHighscore;
+
+    public Image[] stars1;
+    public Image[] stars2;
+    public Image[] stars3;
+
+    public Sprite emptyStar;
+    public Sprite filledStar;
 
     public GameObject[] unlockedLevels;
     public GameObject[] lockedLevels;
@@ -17,7 +27,7 @@ public class LevelSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.GetInt("Level Unlocked", levelNum); //get the number of levels that are unlocked
+        PlayerPrefsFunctions();
     }
 
     // Update is called once per frame
@@ -28,6 +38,61 @@ public class LevelSelection : MonoBehaviour
         WarningsForArrays();
     }
 
+    void PlayerPrefsFunctions()
+    {
+        PlayerPrefs.GetInt("Level Unlocked", levelNum); //get the number of levels that are unlocked
+
+        Debug.Log("The number is " + PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]));
+
+        //retreive the number of stars which player has gotten on each level
+        PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]);
+        PlayerPrefs.GetInt("Level 2 Stars", starsHighscore[1]);
+        PlayerPrefs.GetInt("Level 3 Stars", starsHighscore[2]);
+        PlayerPrefs.GetInt("Level 4 Stars", starsHighscore[3]);
+        PlayerPrefs.GetInt("Level 5 Stars", starsHighscore[4]);
+        PlayerPrefs.GetInt("Level 6 Stars", starsHighscore[5]);
+
+        UpdateStars("Level 1 Stars");
+        UpdateStars("Level 2 Stars");
+        UpdateStars("Level 3 Stars");
+        UpdateStars("Level 4 Stars");
+        UpdateStars("Level 5 Stars");
+        UpdateStars("Level 6 Stars");
+    }
+
+    void UpdateStars(string levelStars)
+    {
+        if (PlayerPrefs.GetInt(levelStars) == 0)
+        {
+            stars1[0].sprite = emptyStar;
+            stars2[0].sprite = emptyStar;
+            stars3[0].sprite = emptyStar;
+        }
+
+        if (PlayerPrefs.GetInt(levelStars) == 1)
+        {
+            stars1[0].sprite = filledStar;
+            stars2[0].sprite = emptyStar;
+            stars3[0].sprite = emptyStar;
+        }
+
+        if (PlayerPrefs.GetInt(levelStars) == 2)
+        {
+            stars1[0].sprite = filledStar;
+            stars2[0].sprite = filledStar;
+            stars3[0].sprite = emptyStar;
+        }
+
+        if (PlayerPrefs.GetInt(levelStars) >= 3)
+        {
+            stars1[0].sprite = filledStar;
+            stars2[0].sprite = filledStar;
+            stars3[0].sprite = filledStar;
+        }
+
+    }
+
+    #region Array Warnings
     void WarningsForArrays()
     {
         if (unlockedLevels[0] == null)
@@ -90,7 +155,9 @@ public class LevelSelection : MonoBehaviour
             Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[5].name);
         }
     }
+    #endregion
 
+    #region Level PlayerPrefs Function
     //unlock the levels 
     void UnlockedLevels(GameObject unlockedLvl, GameObject lockedLvl)
     {
@@ -146,4 +213,5 @@ public class LevelSelection : MonoBehaviour
             UnlockedLevels(unlockedLevels[5], lockedLevels[5]); //unlock level 6
         }
     }
+    #endregion
 }
