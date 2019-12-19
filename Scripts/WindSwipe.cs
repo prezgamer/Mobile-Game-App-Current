@@ -16,6 +16,7 @@ public class WindSwipe : MonoBehaviour
     public float rechargeTime;
 
     public bool canPush;
+    public bool isPaused = false;
     public bool losesGame = false;
 
     // Update is called once per frame
@@ -40,7 +41,7 @@ public class WindSwipe : MonoBehaviour
     void WindControls()
     {
         //check if wind Power is more than 0
-        if (windPower > 0 && canPush == true && losesGame == false)
+        if (windPower > 0 && canPush == true && losesGame == false && isPaused == false)
         {
             if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved))
             {

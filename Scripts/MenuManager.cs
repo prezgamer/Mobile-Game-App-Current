@@ -8,10 +8,12 @@ public class MenuManager : MonoBehaviour
     [Header("Screen Variables")]
     public GameObject mainMenu;
     public GameObject levelSelectScreen;
+    public GameObject clearPlayerprefsScreen;
 
     private void Start()
     {
         CloseLevelSelect(); //close level select and open main menu by default
+        clearPlayerprefsScreen.SetActive(false);
     }
 
     public void StartGame()
@@ -39,6 +41,26 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(selectedScene);
         Time.timeScale = 1f;
+    }
+
+    public void NoClear()
+    {
+        clearPlayerprefsScreen.SetActive(false);
+    }
+
+    public void YesClear()
+    {
+        PlayerPrefs.DeleteAll(); //clear all in game data
+
+        SceneManager.LoadScene("Main Menu");
+        //clearPlayerprefsScreen.SetActive(false); //turn screen off
+        //CloseLevelSelect(); //go back to starting game screen
+    }
+
+
+    public void ClearPlayerprefs()
+    {
+        clearPlayerprefsScreen.SetActive(true);
     }
 
     //quit the game

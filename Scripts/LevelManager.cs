@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         UpdateStars();
-        CheckHighscore();
+       // CheckHighscore();
 
         Debug.Log(stars);
         Debug.Log(highScore);
@@ -97,7 +97,39 @@ public class LevelManager : MonoBehaviour
                 star1.sprite = nullStar;
                 star2.sprite = nullStar;
                 star3.sprite = nullStar;
+                break;
 
+            case 1:
+                star1.sprite = yellowStar;
+                star2.sprite = nullStar;
+                star3.sprite = nullStar;
+                break;
+
+            case 2:
+                star1.sprite = yellowStar;
+                star2.sprite = yellowStar;
+                star3.sprite = nullStar;
+                break;
+
+            case 3:
+                star1.sprite = yellowStar;
+                star2.sprite = yellowStar;
+                star3.sprite = yellowStar;
+                break;
+
+            default:
+                star1.sprite = nullStar;
+                star2.sprite = nullStar;
+                star3.sprite = nullStar;
+                break;
+        }
+    }
+
+    public void UpdateWinScreen()
+    {
+        switch (starCount)
+        {
+            case 0:
                 star1Win.sprite = nullStar;
                 star2Win.sprite = nullStar;
                 star3Win.sprite = nullStar;
@@ -106,10 +138,6 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case 1:
-                star1.sprite = yellowStar;
-                star2.sprite = nullStar;
-                star3.sprite = nullStar;
-
                 star1Win.sprite = yellowStar;
                 star2Win.sprite = nullStar;
                 star3Win.sprite = nullStar;
@@ -118,10 +146,6 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case 2:
-                star1.sprite = yellowStar;
-                star2.sprite = yellowStar;
-                star3.sprite = nullStar;
-
                 star1Win.sprite = yellowStar;
                 star2Win.sprite = yellowStar;
                 star3Win.sprite = nullStar;
@@ -130,10 +154,6 @@ public class LevelManager : MonoBehaviour
                 break;
 
             case 3:
-                star1.sprite = yellowStar;
-                star2.sprite = yellowStar;
-                star3.sprite = yellowStar;
-
                 star1Win.sprite = yellowStar;
                 star2Win.sprite = yellowStar;
                 star3Win.sprite = yellowStar;
@@ -142,10 +162,6 @@ public class LevelManager : MonoBehaviour
                 break;
 
             default:
-                star1.sprite = nullStar;
-                star2.sprite = nullStar;
-                star3.sprite = nullStar;
-
                 star1Win.sprite = nullStar;
                 star2Win.sprite = nullStar;
                 star3Win.sprite = nullStar;
@@ -161,7 +177,6 @@ public class LevelManager : MonoBehaviour
         playerSwipe.losesGame = true;
         theCam.followPlayer = false;
         starsHolder.SetActive(false);
-        //Time.timeScale = 0f;
     }
 
     public void WinGame()
@@ -182,12 +197,12 @@ public class LevelManager : MonoBehaviour
     public void BackToMain()
     {
         SceneManager.LoadScene("Main Menu");
-        //Debug.Log("Going back to main");
     }
 
-    public void Continue()
+    public void Continue(string nextLevelName)
     {
-        Debug.Log("Do nothing for now");
+        SceneManager.LoadScene(nextLevelName);
+        //Debug.Log("Do nothing for now");
     }
 }
 
