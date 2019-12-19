@@ -202,6 +202,7 @@ public class LevelManager : MonoBehaviour
     public void Continue(string nextLevelName)
     {
         SceneManager.LoadScene(nextLevelName);
+        Time.timeScale = 1f;
         //Debug.Log("Do nothing for now");
     }
 }
