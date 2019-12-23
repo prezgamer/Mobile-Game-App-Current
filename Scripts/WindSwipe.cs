@@ -19,10 +19,17 @@ public class WindSwipe : MonoBehaviour
     public bool isPaused = false;
     public bool losesGame = false;
 
+    private void Start()
+    {
+        StopCreatingWind();
+    }
+
     // Update is called once per frame
     void Update()
     {
         windPowerIndicator.value = windPower;
+
+        CheckMousePos();
 
         WindControls(); //wind controls
 
@@ -32,10 +39,31 @@ public class WindSwipe : MonoBehaviour
     //creates a ribbon like trail to symbolise the wind direction
     void CreateWind()
     {
+        GetComponent<TrailRenderer>().enabled = true;
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
         windPower -= 1;
+    }
+
+    void StopCreatingWind()
+    {
+        GetComponent<TrailRenderer>().enabled = false;
+    }
+
+    void CheckMousePos()
+    {
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+        Debug.Log("Position of Mouse is " + Camera.main.ScreenToWorldPoint(mousePos));
+       /* Vector3 mouse = Input.mousePosition;
+        Ray castPoint = Camera.main.ScreenToWorldPoint(mouse);
+        RaycastHit hit;
+        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+        {
+            Debug.Log("Position of Mouse is " + mouse );
+        }*/
+
+
     }
 
     void WindControls()
@@ -46,7 +74,7 @@ public class WindSwipe : MonoBehaviour
             if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved))
             {
                 CreateWind();
-            }
+            } 
             //check if wind Power is less than or equal to 0
         }
         else if (windPower <= 0)
