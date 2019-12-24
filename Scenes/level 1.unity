@@ -363,11 +363,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiked Wall (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: 5663119765671669823, guid: c83525d41348b4345915e277855a1b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -422,6 +417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83525d41348b4345915e277855a1b7e, type: 3}
@@ -1432,11 +1432,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiked Wall (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: 5663119765671669823, guid: c83525d41348b4345915e277855a1b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1491,6 +1486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83525d41348b4345915e277855a1b7e, type: 3}
@@ -1962,11 +1962,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiked Wall (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: 5663119765671669823, guid: c83525d41348b4345915e277855a1b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2021,6 +2016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83525d41348b4345915e277855a1b7e, type: 3}
@@ -2312,11 +2312,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiked Wall (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: 5663119765671669823, guid: c83525d41348b4345915e277855a1b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2371,6 +2366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83525d41348b4345915e277855a1b7e, type: 3}
@@ -2452,11 +2452,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spiked Wall
       objectReference: {fileID: 0}
-    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Spike
-      objectReference: {fileID: 0}
     - target: {fileID: 5663119765671669823, guid: c83525d41348b4345915e277855a1b7e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2511,6 +2506,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303494080017841764, guid: c83525d41348b4345915e277855a1b7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spike
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83525d41348b4345915e277855a1b7e, type: 3}
@@ -2746,7 +2746,7 @@ PrefabInstance:
     - target: {fileID: 5491276814656272244, guid: b8047ebbf7af846499dc71dab74306f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 5491276814656272244, guid: b8047ebbf7af846499dc71dab74306f0,
         type: 3}
@@ -2796,7 +2796,7 @@ PrefabInstance:
     - target: {fileID: 5491276813971729089, guid: b8047ebbf7af846499dc71dab74306f0,
         type: 3}
       propertyPath: m_Mass
-      value: 500
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8047ebbf7af846499dc71dab74306f0, type: 3}
