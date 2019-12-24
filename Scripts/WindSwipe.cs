@@ -39,7 +39,7 @@ public class WindSwipe : MonoBehaviour
     //creates a ribbon like trail to symbolise the wind direction
     void CreateWind()
     {
-        GetComponent<TrailRenderer>().enabled = true;
+        GetComponent<TrailRenderer>().emitting = true;
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
@@ -48,7 +48,7 @@ public class WindSwipe : MonoBehaviour
 
     void StopCreatingWind()
     {
-        GetComponent<TrailRenderer>().enabled = false;
+        GetComponent<TrailRenderer>().emitting = false;
     }
 
     /*void CheckMousePos()
@@ -65,7 +65,10 @@ public class WindSwipe : MonoBehaviour
             if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved))
             {
                 CreateWind();
-            } 
+            } else
+            {
+                StopCreatingWind();
+            }
             //check if wind Power is less than or equal to 0
         }
         else if (windPower <= 0)
