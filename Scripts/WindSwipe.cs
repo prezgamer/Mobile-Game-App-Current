@@ -29,7 +29,7 @@ public class WindSwipe : MonoBehaviour
     {
         windPowerIndicator.value = windPower;
 
-        CheckMousePos();
+        //CheckMousePos();
 
         WindControls(); //wind controls
 
@@ -51,20 +51,11 @@ public class WindSwipe : MonoBehaviour
         GetComponent<TrailRenderer>().enabled = false;
     }
 
-    void CheckMousePos()
+    /*void CheckMousePos()
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
         Debug.Log("Position of Mouse is " + Camera.main.ScreenToWorldPoint(mousePos));
-       /* Vector3 mouse = Input.mousePosition;
-        Ray castPoint = Camera.main.ScreenToWorldPoint(mouse);
-        RaycastHit hit;
-        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
-        {
-            Debug.Log("Position of Mouse is " + mouse );
-        }*/
-
-
-    }
+    }*/
 
     void WindControls()
     {
