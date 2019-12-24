@@ -41,14 +41,11 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-
         LevelStrings();
         starsHolder.SetActive(true);
 
         starCount = 0;
 
-       // PlayerPrefs.SetInt(stars, 0); //set starsCount to 0 by default
         PlayerPrefs.GetInt(highScore); //get the max stars count for this level
 
         playerSwipe = FindObjectOfType<WindSwipe>();
@@ -63,7 +60,6 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         UpdateStars();
-       // CheckHighscore();
 
         Debug.Log(stars);
         Debug.Log(highScore);
@@ -196,14 +192,13 @@ public class LevelManager : MonoBehaviour
 
     public void BackToMain()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("Main Menu"); //return to main menu
     }
 
     public void Continue(string nextLevelName)
     {
-        SceneManager.LoadScene(nextLevelName);
+        SceneManager.LoadScene(nextLevelName); //load next level scene by its name
         Time.timeScale = 1f;
-        //Debug.Log("Do nothing for now");
     }
 }
 

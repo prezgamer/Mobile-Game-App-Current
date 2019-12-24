@@ -20,28 +20,7 @@ public class CameraController : MonoBehaviour
         if (followPlayer)
         {
             FollowPlayer();
-            //SmoothCamera();
         }
-
-        //cameraPos = transform.position;
-
-        /*if (Input.GetMouseButton(1))
-        {
-            touchPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-
-            if (touchPos.x < 0)
-            {
-                //move left
-                //cameraPos.x += 130;
-                transform.Translate(new Vector3(-1, 0, 0));
-            }
-           /* else if (touchPos.x > 0)
-            {
-                //move right
-               // cameraPos.x -= 130;
-               transform.Translate(new Vector3(-1, 0, 0));
-            }
-        }*/
     }
 
     public void FollowPlayer()

@@ -2170,7 +2170,7 @@ MonoBehaviour:
     type: 3}
   nullStar: {fileID: -1917645574668646267, guid: aef9270ed0d054e4e97c084ba927964d,
     type: 3}
-  nameOfLevel: Level 3
+  nameOfLevel: Level 6
   winScreen: {fileID: 140397952}
   loseScreen: {fileID: 140397951}
   gameIsLost: 0
@@ -2269,8 +2269,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665702535}
-  - component: {fileID: 665702534}
   - component: {fileID: 665702533}
+  - component: {fileID: 665702534}
   m_Layer: 0
   m_Name: Player Swipe
   m_TagString: Untagged
