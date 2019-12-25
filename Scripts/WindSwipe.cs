@@ -11,6 +11,8 @@ public class WindSwipe : MonoBehaviour
     public Vector3 touchPosition;
     public int windPower;
 
+    public GameObject trail;
+
     [Header("Time Variables")]
     public float startingRechargeTime;
     public float rechargeTime;
@@ -25,13 +27,15 @@ public class WindSwipe : MonoBehaviour
 
     private void Start()
     {
-        StopCreatingWind(); //Disable Wind at the start
+        //StopCreatingWind(); //Disable Wind at the start
     }
 
     // Update is called once per frame
     void Update()
     {
         windPowerIndicator.value = windPower;
+
+        //Debug.Log("Mouse Position: " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         CheckWindPower(); //check the wind current power, switch if nessasary
 
@@ -42,18 +46,15 @@ public class WindSwipe : MonoBehaviour
 
     #region Wind Create Functions
     //creates a ribbon like trail to symbolise the wind direction
-    void CreateWind()
+    public void CreateWind()
     {
-        GetComponent<TrailRenderer>().emitting = true;
+        GameObject newTrail = Instantiate(trail);
+
+        newTrail.GetComponent<TrailRenderer>().emitting = true;
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
         windPower -= 1;
-    }
-
-    void StopCreatingWind()
-    {
-        GetComponent<TrailRenderer>().emitting = false;
     }
     #endregion
 
@@ -63,19 +64,21 @@ public class WindSwipe : MonoBehaviour
         //if mouse button is held down or player has place finger on screen, also if canPush is true
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true)
         {
-            timeBefSpawning -= Time.deltaTime;
+            CreateWind();
+
+            //timeBefSpawning -= Time.deltaTime;
 
             //only if time has gone down to 0, the wind will spawn
-            if (timeBefSpawning <= 0)
+            /*if (timeBefSpawning <= 0)
             {
                 CreateWind();
-            }
+            }*/
         }
         //else if mouse button is let go or player have tap off screen or application have cancelled, also if canPush is true
         else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && canPush == true)
         {
-            timeBefSpawning = 0.2f;
-            StopCreatingWind();
+            //timeBefSpawning = 0.2f;
+            Destroy(trail);
         }
     }
     #endregion

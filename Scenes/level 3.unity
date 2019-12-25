@@ -999,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 6387422941320586957, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941320586953, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
@@ -1109,12 +1109,12 @@ PrefabInstance:
     - target: {fileID: 6387422941453632783, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941453632783, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941047707585, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
@@ -2223,10 +2223,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windPowerIndicator: {fileID: 1953999424}
   touchPosition: {x: 0, y: 0, z: 0}
-  timeBefChangeWind: 5
   windPower: 100
+  trail: {fileID: 6453867062510067456, guid: ebeebc8aadf98d34ba2bb539a1b76b08, type: 3}
   startingRechargeTime: 5
   rechargeTime: 0
+  timeBefSpawning: 0
+  timeBefChangeWind: 5
   canPush: 1
   isPaused: 0
   losesGame: 0
@@ -6538,5 +6540,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4496424513098410886, guid: b8047ebbf7af846499dc71dab74306f0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b8047ebbf7af846499dc71dab74306f0, type: 3}

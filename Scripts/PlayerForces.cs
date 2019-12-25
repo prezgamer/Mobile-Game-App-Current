@@ -14,6 +14,8 @@ public class PlayerForces : MonoBehaviour
 
     public float startTimeBefChangeWind;
     public float timeBefChangeWind;
+
+    Vector3 startPos, endPos;
     #endregion
 
     private void Start()
@@ -28,8 +30,19 @@ public class PlayerForces : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        /*Vector3 position = endPos.position;
+        Vector3 startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 newPos = position - startPos;
+
+        //this is working!!!
+        /*float yPos = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+        Debug.Log(yPos);*/
+
         PlayerMovement();
+
+        CheckMouseDrag();
     }
 
     void PlayerMovement()
@@ -58,5 +71,25 @@ public class PlayerForces : MonoBehaviour
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y);
             timeBefChangeWind = startTimeBefChangeWind;
         }
+    }
+
+    //this check the mouse is dragging in what direction
+    void CheckMouseDrag()
+    {
+        //when mouse button is pressed down
+        if (Input.GetMouseButtonDown(0))
+        {
+            startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        //when mouse button is pressed up
+        if (Input.GetMouseButtonUp(0))
+        {
+            endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        Vector3 dist = endPos - startPos; //find the dist between end and start positions
+
+        Debug.Log("Mouse Position: " + dist);
     }
 }
