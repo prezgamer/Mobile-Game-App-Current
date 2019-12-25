@@ -15,6 +15,8 @@ public class WindSwipe : MonoBehaviour
     public float startingRechargeTime;
     public float rechargeTime;
 
+    public float timeBefSpawning;
+
     public bool canPush;
     public bool isPaused = false;
     public bool losesGame = false;
@@ -29,11 +31,13 @@ public class WindSwipe : MonoBehaviour
     {
         windPowerIndicator.value = windPower;
 
-        //CheckMousePos();
+        CheckWindPower(); //check the wind current power, switch if nessasary
+
+        RechargeWindPower(); //recharge wind
 
         WindControls(); //wind controls
 
-        RechargeWindPower(); //recharge wind
+        //RechargeWindPower(); //recharge wind
     }
 
     //creates a ribbon like trail to symbolise the wind direction
@@ -51,33 +55,35 @@ public class WindSwipe : MonoBehaviour
         GetComponent<TrailRenderer>().emitting = false;
     }
 
-    /*void CheckMousePos()
-    {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-        Debug.Log("Position of Mouse is " + Camera.main.ScreenToWorldPoint(mousePos));
-    }*/
-
     void WindControls()
     {
-        //check if wind Power is more than 0
-        if (windPower > 0 && canPush == true && losesGame == false && isPaused == false)
+        //if mouse button is held down or player has place finger on screen, also if canPush is true
+        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true)
         {
-            if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved))
+            timeBefSpawning -= Time.deltaTime;
+
+            //only if time has gone down to 0, the wind will spawn
+            if (timeBefSpawning <= 0)
             {
                 CreateWind();
-            } else
-            {
-                StopCreatingWind();
             }
-            //check if wind Power is less than or equal to 0
         }
-        else if (windPower <= 0)
+        //else if mouse button is let go or player have tap off screen or application have cancelled, also if canPush is true
+        else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && canPush == true)
+        {
+            timeBefSpawning = 0.2f;
+            StopCreatingWind();
+        }
+    }
+
+    void CheckWindPower()
+    {
+        if (windPower <= 0)
         {
             windPower = 0;
             canPush = false;
         }
-
-        if (windPower > 100)
+        else if (windPower > 100)
         {
             windPower = 100;
         }

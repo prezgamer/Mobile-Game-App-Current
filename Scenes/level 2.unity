@@ -2354,6 +2354,7 @@ MonoBehaviour:
   windPower: 100
   startingRechargeTime: 5
   rechargeTime: 0
+  timeBefSpawning: 0.5
   canPush: 1
   isPaused: 0
   losesGame: 0
