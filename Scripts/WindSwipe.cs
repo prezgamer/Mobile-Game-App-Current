@@ -5,25 +5,27 @@ using UnityEngine.UI;
 
 public class WindSwipe : MonoBehaviour
 {
+    #region Variables
+    [Header("Touch and Wind Variables")]
     public Slider windPowerIndicator;
-
     public Vector3 touchPosition;
-    public float timeBefChangeWind = 5f;
-
     public int windPower;
 
+    [Header("Time Variables")]
     public float startingRechargeTime;
     public float rechargeTime;
-
     public float timeBefSpawning;
+    public float timeBefChangeWind = 5f;
 
+    [Header("Boolean Variables")]
     public bool canPush;
     public bool isPaused = false;
     public bool losesGame = false;
+    #endregion
 
     private void Start()
     {
-        StopCreatingWind();
+        StopCreatingWind(); //Disable Wind at the start
     }
 
     // Update is called once per frame
@@ -36,10 +38,9 @@ public class WindSwipe : MonoBehaviour
         RechargeWindPower(); //recharge wind
 
         WindControls(); //wind controls
-
-        //RechargeWindPower(); //recharge wind
     }
 
+    #region Wind Create Functions
     //creates a ribbon like trail to symbolise the wind direction
     void CreateWind()
     {
@@ -54,7 +55,9 @@ public class WindSwipe : MonoBehaviour
     {
         GetComponent<TrailRenderer>().emitting = false;
     }
+    #endregion
 
+    #region Player Wind Controls Function
     void WindControls()
     {
         //if mouse button is held down or player has place finger on screen, also if canPush is true
@@ -75,7 +78,9 @@ public class WindSwipe : MonoBehaviour
             StopCreatingWind();
         }
     }
+    #endregion
 
+    #region Wind Power Check Functions
     void CheckWindPower()
     {
         if (windPower <= 0)
@@ -105,4 +110,5 @@ public class WindSwipe : MonoBehaviour
             canPush = true;
         }
     }
+    #endregion
 }

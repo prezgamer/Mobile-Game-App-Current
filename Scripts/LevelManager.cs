@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    #region Variables
     [Header("Stars Variables")]
     public Image star1;
     public Image star2;
@@ -37,6 +38,7 @@ public class LevelManager : MonoBehaviour
 
     WindSwipe playerSwipe;
     CameraController theCam;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -60,30 +62,29 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         UpdateStars();
-
-        Debug.Log(stars);
-        Debug.Log(highScore);
-
-        Debug.Log("stars in " + nameOfLevel + " Is " + PlayerPrefs.GetInt(stars, starCount));
     }
 
+    #region String Function
     void LevelStrings()
     {
         stars += nameOfLevel + " Stars";
         highScore += "Highscore of " + nameOfLevel;
     }
+    #endregion
 
+    #region Highscore Function
     public void CheckHighscore()
     {
         //check if the starcount is more than max stars or highscore in the current level
         if (starCount > PlayerPrefs.GetInt(highScore, 0))
         {
-           // maxStars = starCount;
             PlayerPrefs.SetInt(highScore, maxStars);
             maxStars = starCount;
         }
     }
+    #endregion
 
+    #region Update Stars Count Functions
     public void UpdateStars()
     {
         //set the starsCount to be the same as the cases
@@ -166,7 +167,9 @@ public class LevelManager : MonoBehaviour
                 break;
         }
     }
+    #endregion
 
+    #region Screen and Changing Scene Functions
     public void LoseGame()
     {
         loseScreen.SetActive(true);
@@ -200,5 +203,6 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(nextLevelName); //load next level scene by its name
         Time.timeScale = 1f;
     }
+    #endregion
 }
 

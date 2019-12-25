@@ -12,16 +12,23 @@ public class PauseScreen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseScreen.SetActive(false);
-        pauseButton.SetActive(true);
+        ResumeGame();
     }
 
+    #region Screen and Scene Functions
     public void Restart()
     {
         Scene currentScene = SceneManager.GetActiveScene(); //get the current active scene
 
         SceneManager.LoadScene(currentScene.name); //load the current scene by its name
         Time.timeScale = 1f; //reset the time scale back to 1
+    }
+
+    public void ResumeGame()
+    {
+        pauseScreen.SetActive(false);
+        pauseButton.SetActive(true);
+        Time.timeScale = 1f; //resume game
     }
 
     public void BackToMain()
@@ -42,8 +49,6 @@ public class PauseScreen : MonoBehaviour
         Time.timeScale = 0f;
         FindObjectOfType<WindSwipe>().isPaused = true; //dont allow player to deplete wind power
         pauseScreen.SetActive(true);
-        //FindObjectOfType<WindSwipe>().canPush = false; //dont allow player to deplete wind power
-        //pauseButton.SetActive(false);
-        //Time.timeScale = 0f;
     }
+    #endregion
 }

@@ -10,9 +10,6 @@ public class CameraController : MonoBehaviour
     public Transform player;
     float smoothTime = 1f;
     float velocity = 0f;
-   // public GameObject mainPlayerObj;
-
-    //Vector3 cameraPos;
 
     // Update is called once per frame
     void Update()

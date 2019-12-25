@@ -34,15 +34,12 @@ public class LevelSelection : MonoBehaviour
     void Update()
     {
         UpdateLevels();
-
-       // WarningsForArrays();
     }
 
+    #region PlayerPrefs Starting Functions
     void PlayerPrefsFunctions()
     {
         PlayerPrefs.GetInt("Level Unlocked", levelNum); //get the number of levels that are unlocked
-
-        //Debug.Log("The number is " + PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]));
 
         //retreive the number of stars which player has gotten on each level
         PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]);
@@ -59,6 +56,7 @@ public class LevelSelection : MonoBehaviour
         UpdateStars("Level 5 Stars", 4);
         UpdateStars("Level 6 Stars", 5);
     }
+    #endregion
 
     //update the number of stars gotton on each level
     void UpdateStars(string levelStars, int levelNum)
@@ -68,7 +66,6 @@ public class LevelSelection : MonoBehaviour
             stars1[levelNum].sprite = emptyStar;
             stars2[levelNum].sprite = emptyStar;
             stars3[levelNum].sprite = emptyStar;
-            //Debug.Log("stars are empty at " + "Level " + (levelNum += 1));
         }
 
         if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) == 1)
@@ -90,9 +87,7 @@ public class LevelSelection : MonoBehaviour
             stars1[levelNum].sprite = filledStar;
             stars2[levelNum].sprite = filledStar;
             stars3[levelNum].sprite = filledStar;
-           // Debug.Log("stars have been filled at " + "Level " + (levelNum += 1));
         }
-
     }
 
     #region Array Warnings
