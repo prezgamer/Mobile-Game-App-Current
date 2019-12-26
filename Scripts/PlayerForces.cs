@@ -15,7 +15,7 @@ public class PlayerForces : MonoBehaviour
     public float startTimeBefChangeWind;
     public float timeBefChangeWind;
 
-    Vector3 startPos, endPos;
+    Vector3 startPos, endPos, direction;
     #endregion
 
     private void Start()
@@ -31,18 +31,9 @@ public class PlayerForces : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        /*Vector3 position = endPos.position;
-        Vector3 startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector3 newPos = position - startPos;
-
-        //this is working!!!
-        /*float yPos = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
-        Debug.Log(yPos);*/
-
         PlayerMovement();
 
-        CheckMouseDrag();
+        CalculateMouseDrag();
     }
 
     void PlayerMovement()
@@ -50,7 +41,7 @@ public class PlayerForces : MonoBehaviour
         //check if the balloon has pop, in order for the crate to act normally, rather than having to float in mid air
         if (!theBalloon.hasPop)
         {
-            playerRb.velocity = new Vector2(forceMultiplyer * theWind.touchPosition.x, forceMultiplyer * theWind.touchPosition.y);
+            playerRb.velocity = new Vector2(forceMultiplyer * direction.x, forceMultiplyer * direction.y);
         }
         else if (theBalloon.hasPop)
         {
@@ -74,22 +65,20 @@ public class PlayerForces : MonoBehaviour
     }
 
     //this check the mouse is dragging in what direction
-    void CheckMouseDrag()
+    void CalculateMouseDrag()
     {
         //when mouse button is pressed down
-        if (Input.GetMouseButtonDown(0))
+        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && theWind.canPush == true)
         {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
         //when mouse button is pressed up
-        if (Input.GetMouseButtonUp(0))
+        if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && theWind.canPush == true)
         {
             endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
-        Vector3 dist = endPos - startPos; //find the dist between end and start positions
-
-        Debug.Log("Mouse Position: " + dist);
+        direction = endPos - startPos; //find the dist between end and start positions
     }
 }

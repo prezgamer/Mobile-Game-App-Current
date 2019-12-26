@@ -9,9 +9,8 @@ public class WindSwipe : MonoBehaviour
     [Header("Touch and Wind Variables")]
     public Slider windPowerIndicator;
     public Vector3 touchPosition;
+    public Vector3 startPos, endPos, direction;
     public int windPower;
-
-    public GameObject trail;
 
     [Header("Time Variables")]
     public float startingRechargeTime;
@@ -35,8 +34,6 @@ public class WindSwipe : MonoBehaviour
     {
         windPowerIndicator.value = windPower;
 
-        //Debug.Log("Mouse Position: " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
         CheckWindPower(); //check the wind current power, switch if nessasary
 
         RechargeWindPower(); //recharge wind
@@ -48,12 +45,11 @@ public class WindSwipe : MonoBehaviour
     //creates a ribbon like trail to symbolise the wind direction
     public void CreateWind()
     {
-        GameObject newTrail = Instantiate(trail);
+        GetComponent<TrailRenderer>().emitting = true;
 
-        newTrail.GetComponent<TrailRenderer>().emitting = true;
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
+
         windPower -= 1;
     }
     #endregion
@@ -65,21 +61,12 @@ public class WindSwipe : MonoBehaviour
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true)
         {
             CreateWind();
-
-            //timeBefSpawning -= Time.deltaTime;
-
-            //only if time has gone down to 0, the wind will spawn
-            /*if (timeBefSpawning <= 0)
-            {
-                CreateWind();
-            }*/
         }
-        //else if mouse button is let go or player have tap off screen or application have cancelled, also if canPush is true
+        /*//else if mouse button is let go or player have tap off screen or application have cancelled, also if canPush is true
         else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && canPush == true)
         {
-            //timeBefSpawning = 0.2f;
-            Destroy(trail);
-        }
+
+        }*/
     }
     #endregion
 
