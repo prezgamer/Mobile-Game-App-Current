@@ -7,37 +7,75 @@ public class MovableWall : MonoBehaviour
     public Transform leftTransform;
     public Transform rightTransform;
 
+    public bool movingHorizontal = true;
+    bool hasMoved = false;
+
     Rigidbody2D rb;
     public float speed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        MoveRight(); //move right by default
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (movingHorizontal == true)
+        {
+            MovementHorizontal();
+        } else if (movingHorizontal == false)
+        {
+            MovementVertical();
+        }
+    }
+
+    void MovementHorizontal()
+    {
+        if (hasMoved == false)
+        {
+            MovementDirection(speed, 0);
+        }
+
         if (transform.position.x <= leftTransform.position.x)
         {
-            MoveRight();
+            //move right
+            MovementDirection(speed, 0);
+            hasMoved = true;
         }
 
         if (transform.position.x >= rightTransform.position.x)
         {
-            MoveLeft();
+            //move left
+            MovementDirection(-speed, 0);
+            hasMoved = true;
         }
     }
 
-    void MoveRight()
+    void MovementVertical()
     {
-        rb.velocity = new Vector2(speed, rb.velocity.y);
+        if (hasMoved == false)
+        {
+            MovementDirection(0, speed);
+        }
+
+        if (transform.position.y >= leftTransform.position.y)
+        {
+            //move down
+            MovementDirection(0, -speed);
+            hasMoved = true;
+        }
+
+        if (transform.position.y <= rightTransform.position.y)
+        {
+            //move up
+            MovementDirection(0, speed);
+            hasMoved = true;
+        }
     }
 
-    void MoveLeft()
+    void MovementDirection(float xMove, float yMove)
     {
-        rb.velocity = new Vector2(-speed, rb.velocity.y);
+        rb.velocity = new Vector2(xMove, yMove);
     }
 }

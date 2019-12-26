@@ -1144,7 +1144,7 @@ PrefabInstance:
     - target: {fileID: 6387422941344112465, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: level 3
+      value: level 4
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941826099894, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
@@ -2223,8 +2223,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windPowerIndicator: {fileID: 1953999424}
   touchPosition: {x: 0, y: 0, z: 0}
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
   windPower: 100
-  trail: {fileID: 6453867062510067456, guid: ebeebc8aadf98d34ba2bb539a1b76b08, type: 3}
   startingRechargeTime: 5
   rechargeTime: 0
   timeBefSpawning: 0
@@ -2987,7 +2989,7 @@ PrefabInstance:
     - target: {fileID: 8728253053050148934, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.75
+      value: 30.53
       objectReference: {fileID: 0}
     - target: {fileID: 8728253053050148934, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
@@ -3038,6 +3040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892899272237985174, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: movingHorizontal
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4059732ac21b1844f87af701974f2c75, type: 3}
@@ -3401,7 +3408,7 @@ PrefabInstance:
     - target: {fileID: 8728253053050148934, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3
+      value: 8.29
       objectReference: {fileID: 0}
     - target: {fileID: 8728253053050148934, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
@@ -3452,6 +3459,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892899272237985174, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: movingHorizontal
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4059732ac21b1844f87af701974f2c75, type: 3}
