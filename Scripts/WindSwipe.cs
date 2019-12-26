@@ -60,13 +60,8 @@ public class WindSwipe : MonoBehaviour
         //if mouse button is held down or player has place finger on screen, also if canPush is true
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true)
         {
-            CreateWind();
+            CreateWind(); //just creates a ribbon of the trail renderer
         }
-        /*//else if mouse button is let go or player have tap off screen or application have cancelled, also if canPush is true
-        else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && canPush == true)
-        {
-
-        }*/
     }
     #endregion
 

@@ -172,6 +172,7 @@ public class LevelManager : MonoBehaviour
     #region Screen and Changing Scene Functions
     public void LoseGame()
     {
+        gameIsLost = true;
         loseScreen.SetActive(true);
         playerSwipe.losesGame = true;
         theCam.followPlayer = false;

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    //get balloon to fly up for now
-    //balloon should fly up only when no forces are playing on it (maybe 5 sec), this will be place in windswipe script
     Rigidbody2D balloonRb;
 
     public float speed;

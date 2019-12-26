@@ -68,7 +68,7 @@ public class PlayerForces : MonoBehaviour
     void CalculateMouseDrag()
     {
         //when mouse button is pressed down
-        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && theWind.canPush == true)
+        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && theWind.canPush == true)
         {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }

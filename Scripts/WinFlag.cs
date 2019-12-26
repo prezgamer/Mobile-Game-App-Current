@@ -22,7 +22,7 @@ public class WinFlag : MonoBehaviour
             if (!theLM.gameIsLost)
             {
                 WinGame();
-            } 
+            }
         }
     }
 
