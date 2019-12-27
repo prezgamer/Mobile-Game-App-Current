@@ -16,12 +16,7 @@ public class BoxHit : MonoBehaviour
     {
         if (collision.tag == "Wall")
         {
-            PlayAudioSource();
+            
         }
-    }
-
-    void PlayAudioSource()
-    {
-        boxHitSound.Play();
     }
 }

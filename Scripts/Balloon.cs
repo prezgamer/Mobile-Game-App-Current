@@ -39,7 +39,8 @@ public class Balloon : MonoBehaviour
     void Pop()
     {
         hasPop = true;
-        balloonPopSound.Play(); //play pop soundS
+        LevelManager.PlayAudioSource(balloonPopSound); //play pop sound
+        LevelManager.runGame = false;
         theLM.LoseGame(); //lose game when player pops balloon
         Destroy(this.gameObject);
     }

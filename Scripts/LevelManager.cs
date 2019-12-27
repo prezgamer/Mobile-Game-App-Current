@@ -11,19 +11,20 @@ public class LevelManager : MonoBehaviour
     public Image star1;
     public Image star2;
     public Image star3;
-
     public Image star1Win;
     public Image star2Win;
     public Image star3Win;
-
     public Sprite yellowStar;
     public Sprite nullStar;
 
+    [Header("PlayerPrefs Variables")]
     public string nameOfLevel;
     string stars;
     string highScore;
 
     //public Text starCountText; //text for now
+    public static bool runGame = true;
+    public bool gameIsRunning = true;
 
     [Header("Screens")]
     public GameObject winScreen;
@@ -38,7 +39,14 @@ public class LevelManager : MonoBehaviour
 
     WindSwipe playerSwipe;
     CameraController theCam;
+    StarScript theStars;
     #endregion
+
+    private void Awake()
+    {
+        runGame = true;
+        gameIsRunning = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +59,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.GetInt(highScore); //get the max stars count for this level
 
         playerSwipe = FindObjectOfType<WindSwipe>();
+        theStars = FindObjectOfType<StarScript>();
         theCam = FindObjectOfType<CameraController>();
 
         //by default, win and lose screens are set inactive at start
@@ -58,11 +67,17 @@ public class LevelManager : MonoBehaviour
         loseScreen.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateStars();
     }
+
+    #region Audio Functions
+    public static void PlayAudioSource(AudioSource audioSource)
+    {
+        audioSource.Play();
+    }
+    #endregion
 
     #region String Function
     void LevelStrings()

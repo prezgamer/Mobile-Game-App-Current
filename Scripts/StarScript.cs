@@ -16,6 +16,11 @@ public class StarScript : MonoBehaviour
 
     private void Update()
     {
+        RotateStar(); //rotate the star via its y axis
+    }
+
+    public void RotateStar()
+    {
         transform.Rotate(new Vector3(0, 2, 0));
     }
 
@@ -30,7 +35,7 @@ public class StarScript : MonoBehaviour
     public void CollectStars()
     {
         theLM.starCount += 1;
-        collectSound.Play();
+        LevelManager.PlayAudioSource(collectSound); //play audioSource Sound
         Destroy(this.gameObject);
     }
 }

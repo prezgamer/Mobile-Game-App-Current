@@ -16,18 +16,8 @@ public class MovableWall : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (movingHorizontal == true)
-        {
-            MovementHorizontal();
-        } else if (movingHorizontal == false)
-        {
-            MovementVertical();
-        }
+        StartCoroutine(RunGame());
     }
 
     void MovementHorizontal()
@@ -74,8 +64,33 @@ public class MovableWall : MonoBehaviour
         }
     }
 
+    void CheckMovementType()
+    {
+        //if horizontal is true, move horizontal
+        if (movingHorizontal == true)
+        {
+            MovementHorizontal();
+        }
+        else if (movingHorizontal == false) //if horizontal is not true, move vertical
+        {
+            MovementVertical();
+        }
+    }
+
     void MovementDirection(float xMove, float yMove)
     {
         rb.velocity = new Vector2(xMove, yMove);
+    }
+
+    IEnumerator RunGame()
+    {
+        while(LevelManager.runGame == true)
+        {
+            CheckMovementType();
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        MovementDirection(0, 0);
     }
 }

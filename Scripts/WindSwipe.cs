@@ -27,18 +27,7 @@ public class WindSwipe : MonoBehaviour
     private void Start()
     {
         //StopCreatingWind(); //Disable Wind at the start
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        windPowerIndicator.value = windPower;
-
-        CheckWindPower(); //check the wind current power, switch if nessasary
-
-        RechargeWindPower(); //recharge wind
-
-        WindControls(); //wind controls
+        StartCoroutine(RunGame());
     }
 
     #region Wind Create Functions
@@ -58,7 +47,7 @@ public class WindSwipe : MonoBehaviour
     void WindControls()
     {
         //if mouse button is held down or player has place finger on screen, also if canPush is true
-        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true)
+        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true && losesGame == false)
         {
             CreateWind(); //just creates a ribbon of the trail renderer
         }
@@ -96,4 +85,20 @@ public class WindSwipe : MonoBehaviour
         }
     }
     #endregion
+
+    IEnumerator RunGame()
+    {
+        while(LevelManager.runGame == true)
+        {
+            windPowerIndicator.value = windPower;
+
+            CheckWindPower(); //check the wind current power, switch if nessasary
+
+            RechargeWindPower(); //recharge wind
+
+            WindControls(); //wind controls
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
 }

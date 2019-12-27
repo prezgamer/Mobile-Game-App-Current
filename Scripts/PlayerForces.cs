@@ -28,15 +28,13 @@ public class PlayerForces : MonoBehaviour
         timeBefChangeWind = startTimeBefChangeWind; //set time to be starting time
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
+    private void Update()
+    {
         PlayerMovement();
-
         CalculateMouseDrag();
     }
 
-    void PlayerMovement()
+    public void PlayerMovement()
     {
         //check if the balloon has pop, in order for the crate to act normally, rather than having to float in mid air
         if (!theBalloon.hasPop)
@@ -65,7 +63,7 @@ public class PlayerForces : MonoBehaviour
     }
 
     //this check the mouse is dragging in what direction
-    void CalculateMouseDrag()
+    public void CalculateMouseDrag()
     {
         //when mouse button is pressed down
         if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && theWind.canPush == true)
