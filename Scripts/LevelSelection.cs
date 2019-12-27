@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
-    public int levelNum;
+    public static int levelNum;
 
     public int[] starsHighscore;
 
@@ -166,6 +166,8 @@ public class LevelSelection : MonoBehaviour
     //updates the levels that have been unlocked
     public void UpdateLevels()
     {
+        Debug.Log("Level Unlocked: " + levelNum);
+
         if (PlayerPrefs.GetInt("Level Unlocked") == 0)
         {
             UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1

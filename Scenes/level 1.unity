@@ -234,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &19545646
 Transform:
   m_ObjectHideFlags: 0
@@ -1087,10 +1087,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windPowerIndicator: {fileID: 508141374}
   touchPosition: {x: 0, y: 0, z: 0}
-  timeBefChangeWind: 5
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
   windPower: 100
   startingRechargeTime: 5
   rechargeTime: 0
+  timeBefSpawning: 0
+  timeBefChangeWind: 5
   canPush: 1
   isPaused: 0
   losesGame: 0
