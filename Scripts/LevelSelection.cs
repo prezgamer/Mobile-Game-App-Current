@@ -58,7 +58,7 @@ public class LevelSelection : MonoBehaviour
     }
     #endregion
 
-    //update the number of stars gotton on each level
+    //update the number of stars gotten on each level
     void UpdateStars(string levelStars, int levelNum)
     {
         if (PlayerPrefs.GetInt(levelStars, starsHighscore[levelNum]) == 0)
