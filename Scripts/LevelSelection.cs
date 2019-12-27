@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class LevelSelection : MonoBehaviour
 {
     public int levelNum;
-    int maxLevelNum;
 
     public int[] starsHighscore;
 
@@ -42,7 +41,7 @@ public class LevelSelection : MonoBehaviour
         //if the level unlock is more, override the max levels and set to that number
         if (PlayerPrefs.GetInt("Level Unlocked", levelNum) > PlayerPrefs.GetInt("Max Levels"))
         {
-            PlayerPrefs.SetInt("Max Levels", PlayerPrefs.GetInt("Level Unlocked"));
+            PlayerPrefs.SetInt("Max Levels", PlayerPrefs.GetInt("Level Unlocked")); //set the max num to be the same as the level unlocked
         }
 
         //if max levels is more, override the level num to be always be the same as max levels
@@ -59,7 +58,15 @@ public class LevelSelection : MonoBehaviour
         PlayerPrefs.GetInt("Level 4 Stars", starsHighscore[3]);
         PlayerPrefs.GetInt("Level 5 Stars", starsHighscore[4]);
         PlayerPrefs.GetInt("Level 6 Stars", starsHighscore[5]);
-        
+
+        //check if less stars does not override the max stars collected for each level
+        CheckStarCount("Level 1 Stars", "Max Level 1 Stars");
+        CheckStarCount("Level 2 Stars", "Max Level 2 Stars");
+        CheckStarCount("Level 3 Stars", "Max Level 3 Stars");
+        CheckStarCount("Level 4 Stars", "Max Level 4 Stars");
+        CheckStarCount("Level 5 Stars", "Max Level 5 Stars");
+        CheckStarCount("Level 6 Stars", "Max Level 6 Stars");
+
         //update the stars based on each level collection of stars
         UpdateStars("Level 1 Stars", 0);
         UpdateStars("Level 2 Stars", 1);
@@ -69,6 +76,18 @@ public class LevelSelection : MonoBehaviour
         UpdateStars("Level 6 Stars", 5);
     }
     #endregion
+
+    #region Check Star Count Functions
+    void CheckStarCount(string levelStars, string maxLevelStars)
+    {
+        //if level stars is more, set the max level stars to be level stars
+        if (PlayerPrefs.GetInt(levelStars) > PlayerPrefs.GetInt(maxLevelStars))
+        {
+            PlayerPrefs.SetInt(maxLevelStars, (PlayerPrefs.GetInt(levelStars))); 
+        }
+
+        PlayerPrefs.SetInt(levelStars, PlayerPrefs.GetInt(maxLevelStars)); //set the level stars to be max level stars
+    }
 
     //update the number of stars gotten on each level
     void UpdateStars(string levelStars, int levelNum)
@@ -101,6 +120,7 @@ public class LevelSelection : MonoBehaviour
             stars3[levelNum].sprite = filledStar;
         }
     }
+    #endregion
 
     #region Level Unlock Functions
     //unlock the levels 
