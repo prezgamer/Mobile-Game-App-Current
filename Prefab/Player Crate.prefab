@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fffe24fe7da9924ea53a4855bc496f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplyer: 0.25
+  forceMultiplyer: 0.3
   startTimeBefChangeWind: 5
   timeBefChangeWind: 5
 --- !u!114 &4496424513098410886
