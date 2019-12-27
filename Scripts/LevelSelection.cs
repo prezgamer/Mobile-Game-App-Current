@@ -19,11 +19,6 @@ public class LevelSelection : MonoBehaviour
     public GameObject[] unlockedLevels;
     public GameObject[] lockedLevels;
 
-    private void Awake()
-    {
-        WarningsForArrays();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +43,8 @@ public class LevelSelection : MonoBehaviour
         PlayerPrefs.GetInt("Level 4 Stars", starsHighscore[3]);
         PlayerPrefs.GetInt("Level 5 Stars", starsHighscore[4]);
         PlayerPrefs.GetInt("Level 6 Stars", starsHighscore[5]);
-
+        
+        //update the stars based on each level collection of stars
         UpdateStars("Level 1 Stars", 0);
         UpdateStars("Level 2 Stars", 1);
         UpdateStars("Level 3 Stars", 2);
@@ -89,71 +85,6 @@ public class LevelSelection : MonoBehaviour
             stars3[levelNum].sprite = filledStar;
         }
     }
-
-    #region Array Warnings
-    void WarningsForArrays()
-    {
-        if (unlockedLevels[0] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[0].name);
-        }
-
-        if (unlockedLevels[1] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[1].name);
-        }
-
-        if (unlockedLevels[2] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[2].name);
-        }
-
-        if (unlockedLevels[3] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[3].name);
-        }
-
-        if (unlockedLevels[4] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[4].name);
-        }
-
-        if (unlockedLevels[5] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + unlockedLevels[5].name);
-        }
-
-        if (lockedLevels[0] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[0].name);
-        }
-
-        if (lockedLevels[1] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[1].name);
-        }
-
-        if (lockedLevels[2] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[2].name);
-        }
-
-        if (lockedLevels[3] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[3].name);
-        }
-
-        if (lockedLevels[4] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[4].name);
-        }
-
-        if (lockedLevels[5] == null)
-        {
-            Debug.LogWarning("no gameobj is being loaded in " + lockedLevels[5].name);
-        }
-    }
-    #endregion
 
     #region Level Unlock Functions
     //unlock the levels 

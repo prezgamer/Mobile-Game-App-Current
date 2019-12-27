@@ -34,8 +34,9 @@ public class StarScript : MonoBehaviour
 
     public void CollectStars()
     {
-        theLM.starCount += 1;
         LevelManager.PlayAudioSource(collectSound); //play audioSource Sound
+        theLM.starCount += 1;
+        //LevelManager.PlayAudioSource(collectSound); //play audioSource Sound
         Destroy(this.gameObject);
     }
 }

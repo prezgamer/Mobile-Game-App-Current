@@ -10,6 +10,7 @@ public class Balloon : MonoBehaviour
     AudioSource balloonPopSound;
     public GameObject balloonExplosion;
     public bool hasPop = false;
+    public float timeBefDissapear;
 
     LevelManager theLM;
 
@@ -47,6 +48,6 @@ public class Balloon : MonoBehaviour
 
     private void OnDestroy()
     {
-        //Instantiate(balloonExplosion, transform.position, Quaternion.identity);
+        Destroy(Instantiate(balloonExplosion, transform.position, Quaternion.identity), timeBefDissapear); //spawn balloon explosion and despawn after 0.5f
     }
 }

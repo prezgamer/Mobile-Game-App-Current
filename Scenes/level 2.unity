@@ -1588,6 +1588,7 @@ MonoBehaviour:
   nullStar: {fileID: -1917645574668646267, guid: aef9270ed0d054e4e97c084ba927964d,
     type: 3}
   nameOfLevel: Level 2
+  gameIsRunning: 1
   winScreen: {fileID: 140397952}
   loseScreen: {fileID: 140397951}
   gameIsLost: 0
@@ -3285,7 +3286,7 @@ PrefabInstance:
     - target: {fileID: 5491276814656272244, guid: b8047ebbf7af846499dc71dab74306f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 5491276814656272244, guid: b8047ebbf7af846499dc71dab74306f0,
         type: 3}
@@ -3406,15 +3407,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1460758276504473875, guid: 679692f9283f96a4389233d161c71ec5,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 51df84675a5639642b1c60ff206c4570, type: 3}
     - target: {fileID: 725145346499012172, guid: 679692f9283f96a4389233d161c71ec5,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1460758276504473875, guid: 679692f9283f96a4389233d161c71ec5,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 51df84675a5639642b1c60ff206c4570, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679692f9283f96a4389233d161c71ec5, type: 3}
