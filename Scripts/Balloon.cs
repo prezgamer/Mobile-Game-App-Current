@@ -7,6 +7,7 @@ public class Balloon : MonoBehaviour
     Rigidbody2D balloonRb;
 
     public float speed;
+    AudioSource balloonPopSound;
     public GameObject balloonExplosion;
     public bool hasPop = false;
 
@@ -18,6 +19,7 @@ public class Balloon : MonoBehaviour
         balloonRb = GetComponent<Rigidbody2D>(); //get rigidbody2D component
 
         theLM = FindObjectOfType<LevelManager>();
+        balloonPopSound = GameObject.Find("Balloon Pop Sound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,10 +32,16 @@ public class Balloon : MonoBehaviour
     {
         if (other.tag == "Spike")
         {
-            hasPop = true;
-            theLM.LoseGame(); //lose game when player pops balloon
-            Destroy(this.gameObject);
+            Pop();
         }
+    }
+
+    void Pop()
+    {
+        hasPop = true;
+        balloonPopSound.Play(); //play pop soundS
+        theLM.LoseGame(); //lose game when player pops balloon
+        Destroy(this.gameObject);
     }
 
     private void OnDestroy()

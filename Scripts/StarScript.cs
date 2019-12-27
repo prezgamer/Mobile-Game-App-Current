@@ -5,15 +5,18 @@ using UnityEngine;
 public class StarScript : MonoBehaviour
 {
     LevelManager theLM;
+    AudioSource collectSound;
 
     private void Start()
     {
         theLM = FindObjectOfType<LevelManager>();
+
+        collectSound = GameObject.Find("Star Collect Sound").GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        transform.Rotate(new Vector3(0, 1, 0));
+        transform.Rotate(new Vector3(0, 2, 0));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +30,7 @@ public class StarScript : MonoBehaviour
     public void CollectStars()
     {
         theLM.starCount += 1;
+        collectSound.Play();
         Destroy(this.gameObject);
     }
 }
