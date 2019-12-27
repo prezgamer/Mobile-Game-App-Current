@@ -23,8 +23,10 @@ public class LevelManager : MonoBehaviour
     string highScore;
 
     //public Text starCountText; //text for now
+    [Header("Boolean Variables")]
     public static bool runGame = true;
-    public bool gameIsRunning = true;
+    public bool turnOnEffects = true;
+    //public bool gameIsRunning = true;
 
     [Header("Screens")]
     public GameObject winScreen;
@@ -45,7 +47,8 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         runGame = true;
-        gameIsRunning = true;
+        turnOnEffects = true;
+        //gameIsRunning = true;
     }
 
     // Start is called before the first frame update
@@ -203,20 +206,27 @@ public class LevelManager : MonoBehaviour
 
     public void RestartGame()
     {
+        turnOnEffects = false;
         Scene currentScene = SceneManager.GetActiveScene(); //get the current active scene
 
         SceneManager.LoadScene(currentScene.name); //load the current scene by its name
+        //turnOnEffects = false;
         Time.timeScale = 1f; //reset the time scale back to 1
     }
 
     public void BackToMain()
     {
+        turnOnEffects = false;
         SceneManager.LoadScene("Main Menu"); //return to main menu
+        Time.timeScale = 1f;
+        //turnOnEffects = false;
     }
 
     public void Continue(string nextLevelName)
     {
+        turnOnEffects = false;
         SceneManager.LoadScene(nextLevelName); //load next level scene by its name
+        //turnOnEffects = false;
         Time.timeScale = 1f;
     }
     #endregion

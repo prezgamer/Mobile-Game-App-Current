@@ -28,9 +28,6 @@ public class WinFlag : MonoBehaviour
 
     public void WinGame()
     {
-        //levelSelect.levelNum += 1;
-        LevelSelection.levelNum += 1;
-
         theLM.UpdateWinScreen();
         theLM.CheckHighscore();
 

@@ -42,12 +42,20 @@ public class Balloon : MonoBehaviour
         hasPop = true;
         LevelManager.PlayAudioSource(balloonPopSound); //play pop sound
         LevelManager.runGame = false;
+        Destroy(Instantiate(balloonExplosion, transform.position, Quaternion.identity), timeBefDissapear); //spawn balloon explosion and despawn after 0.5f
         theLM.LoseGame(); //lose game when player pops balloon
         Destroy(this.gameObject);
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
-        Destroy(Instantiate(balloonExplosion, transform.position, Quaternion.identity), timeBefDissapear); //spawn balloon explosion and despawn after 0.5f
-    }
+        if (theLM.turnOnEffects)
+        {
+            Destroy(Instantiate(balloonExplosion, transform.position, Quaternion.identity), timeBefDissapear); //spawn balloon explosion and despawn after 0.5f
+        } else if (theLM.turnOnEffects == false)
+        {
+            Debug.Log("do not do anything");
+        }
+    }*/
+
 }

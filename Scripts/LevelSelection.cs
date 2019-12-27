@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
-    public static int levelNum;
+    public int levelNum;
+    int maxLevelNum;
 
     public int[] starsHighscore;
 
@@ -29,12 +30,27 @@ public class LevelSelection : MonoBehaviour
     void Update()
     {
         UpdateLevels();
+
+        PlayerPrefsFunctions();
     }
 
     #region PlayerPrefs Starting Functions
     void PlayerPrefsFunctions()
     {
-        PlayerPrefs.GetInt("Level Unlocked", levelNum); //get the number of levels that are unlocked
+        PlayerPrefs.GetInt("Max Levels");
+
+        //if the level unlock is more, override the max levels and set to that number
+        if (PlayerPrefs.GetInt("Level Unlocked", levelNum) > PlayerPrefs.GetInt("Max Levels"))
+        {
+            PlayerPrefs.SetInt("Max Levels", PlayerPrefs.GetInt("Level Unlocked"));
+        }
+
+        //if max levels is more, override the level num to be always be the same as max levels
+        if (PlayerPrefs.GetInt("Max Levels") > PlayerPrefs.GetInt("Level Unlocked", levelNum))
+        {
+            levelNum = PlayerPrefs.GetInt("Max Levels");
+            PlayerPrefs.SetInt("Level Unlocked", levelNum);
+        }
 
         //retreive the number of stars which player has gotten on each level
         PlayerPrefs.GetInt("Level 1 Stars", starsHighscore[0]);
