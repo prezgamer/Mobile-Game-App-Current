@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject levelSelectScreen;
     public GameObject clearPlayerprefsScreen;
+    public Animator loadingScreen;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class MenuManager : MonoBehaviour
     //load level with selected scene name
     public void LoadSelectedLevel(string selectedScene)
     {
-        SceneManager.LoadScene(selectedScene);
+        StartCoroutine(LoadingGame(loadingScreen, selectedScene));
         Time.timeScale = 1f;
     }
 
@@ -53,8 +54,6 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.DeleteAll(); //clear all in game data
 
         SceneManager.LoadScene("Main Menu");
-        //clearPlayerprefsScreen.SetActive(false); //turn screen off
-        //CloseLevelSelect(); //go back to starting game screen
     }
 
 
@@ -67,5 +66,19 @@ public class MenuManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator LoadingGame(Animator loadingScreenAnim, string sceneName)
+    {
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName); //load scene in background
+
+        loadingScreenAnim.SetTrigger("StartLoading"); //play the starting of loading screen
+
+        while (!asyncOperation.isDone)
+        {
+            yield return null;
+        }
+
+        loadingScreenAnim.SetTrigger("EndLoading"); //play the ending of the loading screen
     }
 }
