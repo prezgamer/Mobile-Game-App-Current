@@ -66,13 +66,13 @@ public class PlayerForces : MonoBehaviour
     public void CalculateMouseDrag()
     {
         //when mouse button is pressed down
-        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && theWind.canPush == true)
+        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //&& theWind.canPush == true)
         {
             startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
         //when mouse button is pressed up
-        if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)) && theWind.canPush == true)
+        if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)))// && theWind.canPush == true)
         {
             endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }

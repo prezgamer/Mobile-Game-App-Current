@@ -19,7 +19,7 @@ public class WindSwipe : MonoBehaviour
     public float timeBefChangeWind = 5f;
 
     [Header("Boolean Variables")]
-    public bool canPush;
+    //public bool canPush;
     public bool isPaused = false;
     public bool losesGame = false;
     #endregion
@@ -38,6 +38,7 @@ public class WindSwipe : MonoBehaviour
 
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
+        rechargeTime = startingRechargeTime; //this resets the time
 
         windPower -= 1;
     }
@@ -47,10 +48,17 @@ public class WindSwipe : MonoBehaviour
     void WindControls()
     {
         //if mouse button is held down or player has place finger on screen, also if canPush is true
-        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && canPush == true && losesGame == false)
+        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && losesGame == false)
         {
             CreateWind(); //just creates a ribbon of the trail renderer
+        } 
+        else
+        {
+            Debug.Log("test");
+            //recharge time
+            RechargeWindPower();
         }
+
     }
     #endregion
 
@@ -60,7 +68,7 @@ public class WindSwipe : MonoBehaviour
         if (windPower <= 0)
         {
             windPower = 0;
-            canPush = false;
+            //canPush = false;
         }
         else if (windPower > 100)
         {
@@ -70,18 +78,12 @@ public class WindSwipe : MonoBehaviour
 
     void RechargeWindPower()
     {
-        if (rechargeTime > 0 && canPush == false)
+        //check if recharge time is more than 0
+        if (rechargeTime > 0) //&& canPush == false)
         {
             //count down recharge time and add wind Power at the process
             rechargeTime -= Time.deltaTime;
             windPower += 1;
-        }
-        
-        if (rechargeTime <= 0 || windPower >= 100)
-        {
-            //reset recharge time and set can Push to true
-            rechargeTime = startingRechargeTime;
-            canPush = true;
         }
     }
     #endregion
@@ -93,8 +95,6 @@ public class WindSwipe : MonoBehaviour
             windPowerIndicator.value = windPower;
 
             CheckWindPower(); //check the wind current power, switch if nessasary
-
-            RechargeWindPower(); //recharge wind
 
             WindControls(); //wind controls
 
