@@ -56,8 +56,8 @@ public class CameraController : MonoBehaviour
 
     void CalculateDistance()
     {
-        float minSize = 5f;
-        float maxSize = 9f;
+        float minSize = 3f;
+        float maxSize = 3.5f;
 
         //check if previous distance magnitute or distance is less than distance magitute
         if (previousDist.magnitude < distanceBtwFingers.magnitude)
