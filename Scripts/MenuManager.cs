@@ -40,7 +40,8 @@ public class MenuManager : MonoBehaviour
     //load level with selected scene name
     public void LoadSelectedLevel(string selectedScene)
     {
-        StartCoroutine(LoadingGame(loadingScreen, selectedScene));
+        //StartCoroutine(LoadingGame(loadingScreen, selectedScene));
+        SceneManager.LoadScene(selectedScene); //load selected scene name
         Time.timeScale = 1f;
     }
 

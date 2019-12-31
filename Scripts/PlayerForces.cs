@@ -10,6 +10,8 @@ public class PlayerForces : MonoBehaviour
     WindSwipe theWind;
     Balloon theBalloon;
 
+    //bool runGame = true;
+
     public float forceMultiplyer;
 
     public float startTimeBefChangeWind;
@@ -26,12 +28,31 @@ public class PlayerForces : MonoBehaviour
         theWind = FindObjectOfType<WindSwipe>();
 
         timeBefChangeWind = startTimeBefChangeWind; //set time to be starting time
+
+        //StartCoroutine(RunGame());
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         PlayerMovement();
+        StopMoving();
         CalculateMouseDrag();
+    }
+
+    void StopMoving()
+    {
+        //allow the crate to move the a direction for a few sec before switching back to its normal speed
+        if (theWind.touchPosition.x > 0 ||
+            theWind.touchPosition.x < 0 ||
+            theWind.touchPosition.y > 0 ||
+            theWind.touchPosition.y < 0)
+        {
+            timeBefChangeWind -= Time.deltaTime;
+        } else if (timeBefChangeWind <= 0)
+        {
+            playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y);
+            timeBefChangeWind = startTimeBefChangeWind;
+        }
     }
 
     public void PlayerMovement()
@@ -45,38 +66,40 @@ public class PlayerForces : MonoBehaviour
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y);
         }
-
-        //allow the crate to move the a direction for a few sec before switching back to its normal speed
-        if (theWind.touchPosition.x > 0 ||
-            theWind.touchPosition.x < 0 ||
-            theWind.touchPosition.y > 0 ||
-            theWind.touchPosition.y < 0)
-        {
-            timeBefChangeWind -= Time.deltaTime;
-        }
-
-        if (timeBefChangeWind <= 0)
-        {
-            playerRb.velocity = new Vector2(playerRb.velocity.x, playerRb.velocity.y);
-            timeBefChangeWind = startTimeBefChangeWind;
-        }
     }
 
     //this check the mouse is dragging in what direction
     public void CalculateMouseDrag()
     {
-        //when mouse button is pressed down
-        if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //&& theWind.canPush == true)
+        //only enable when there is 1 finger on screen
+        if (Input.touchCount == 1)
         {
-            startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
+            //when mouse button is pressed down
+            if ((Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //&& theWind.canPush == true)
+            {
+                startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
 
-        //when mouse button is pressed up
-        if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)))// && theWind.canPush == true)
-        {
-            endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }
+            //when mouse button is pressed up
+            else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)))// && theWind.canPush == true)
+            {
+                endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
 
-        direction = endPos - startPos; //find the dist between end and start positions
+
+            direction = endPos - startPos; //find the dist between end and start positions
+        }
     }
+
+    /*IEnumerator RunGame()
+    {
+        while (runGame == true)
+        {
+            PlayerMovement();
+            StopMoving();
+            CalculateMouseDrag();
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }*/
 }

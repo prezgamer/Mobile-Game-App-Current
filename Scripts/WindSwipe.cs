@@ -47,15 +47,21 @@ public class WindSwipe : MonoBehaviour
     #region Player Wind Controls Function
     void WindControls()
     {
-        //if mouse button is held down or player has place finger on screen, also if canPush is true
-        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && losesGame == false)
+        //only enable when there is 1 finger on screen
+        if (Input.touchCount == 1)
         {
-            CreateWind(); //just creates a ribbon of the trail renderer
-        } 
-        else
+            //if mouse button is held down or player has place finger on screen, also if canPush is true
+            if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && losesGame == false)
+            {
+                CreateWind(); //just creates a ribbon of the trail renderer
+            }
+            else
+            {
+                //recharge wind
+                RechargeWindPower();
+            }
+        } else
         {
-            Debug.Log("test");
-            //recharge time
             RechargeWindPower();
         }
 
