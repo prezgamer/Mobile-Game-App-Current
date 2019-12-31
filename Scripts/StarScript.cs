@@ -14,10 +14,10 @@ public class StarScript : MonoBehaviour
         collectSound = GameObject.Find("Star Collect Sound").GetComponent<AudioSource>();
     }
 
-    private void Update()
+   /* private void Update()
     {
         RotateStar(); //rotate the star via its y axis
-    }
+    }*/
 
     public void RotateStar()
     {
