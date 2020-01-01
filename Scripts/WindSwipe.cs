@@ -9,7 +9,7 @@ public class WindSwipe : MonoBehaviour
     [Header("Touch and Wind Variables")]
     public Slider windPowerIndicator;
     public Vector3 touchPosition;
-    public Vector3 startPos, endPos, direction;
+    Vector3 startPos, endPos, direction;
     public int windPower;
 
     [Header("Time Variables")]
@@ -48,8 +48,8 @@ public class WindSwipe : MonoBehaviour
     void WindControls()
     {
         //only enable when there is 1 finger on screen
-        if (Input.touchCount == 1)
-        {
+        //if (Input.touchCount == 1)
+        
             //if mouse button is held down or player has place finger on screen, also if canPush is true
             if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && losesGame == false)
             {
@@ -60,11 +60,6 @@ public class WindSwipe : MonoBehaviour
                 //recharge wind
                 RechargeWindPower();
             }
-        } else
-        {
-            RechargeWindPower();
-        }
-
     }
     #endregion
 

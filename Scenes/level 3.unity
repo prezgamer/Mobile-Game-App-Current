@@ -612,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 6387422941320586957, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941320586953, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
@@ -722,12 +722,12 @@ PrefabInstance:
     - target: {fileID: 6387422941453632783, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941453632783, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6387422941047707585, guid: e1471768a9133bd4894e41cfff90224b,
         type: 3}
@@ -2207,9 +2207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windPowerIndicator: {fileID: 1953999424}
   touchPosition: {x: 0, y: 0, z: 0}
-  startPos: {x: 0, y: 0, z: 0}
-  endPos: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
   windPower: 100
   startingRechargeTime: 5
   rechargeTime: 0
@@ -2287,20 +2284,20 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
+      key1: {r: 1, g: 0, b: 0, a: 1}
+      key2: {r: 1, g: 0.96507263, b: 0, a: 0}
+      key3: {r: 0.58782756, g: 1, b: 0, a: 0}
+      key4: {r: 0, g: 0.92761326, b: 1, a: 0}
+      key5: {r: 0, g: 0.09551287, b: 1, a: 0}
+      key6: {r: 1, g: 0, b: 0.9701619, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
+      ctime1: 7132
+      ctime2: 14456
+      ctime3: 23516
+      ctime4: 34695
+      ctime5: 42598
+      ctime6: 51464
       ctime7: 0
       atime0: 0
       atime1: 65535
@@ -2311,7 +2308,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 7
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -2319,7 +2316,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.5
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!4 &665702535
@@ -5289,6 +5286,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5394562920670945426, guid: fb13f7be43dece642a9320eae2715109,
+        type: 3}
+      propertyPath: levelToUnlocked
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 390043236220577463, guid: fb13f7be43dece642a9320eae2715109,
         type: 3}
       propertyPath: levelToUnlocked
       value: 3
