@@ -2585,33 +2585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1668454875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5394562922060201029, guid: fb13f7be43dece642a9320eae2715109,
-    type: 3}
-  m_PrefabInstance: {fileID: 5394562922548349761}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1668454876
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668454875}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1683298280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,16 +3500,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5394562920670945426, guid: fb13f7be43dece642a9320eae2715109,
-        type: 3}
-      propertyPath: levelToUnlocked
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 390043236220577463, guid: fb13f7be43dece642a9320eae2715109,
-        type: 3}
-      propertyPath: levelToUnlocked
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb13f7be43dece642a9320eae2715109, type: 3}

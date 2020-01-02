@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7984511996682489344}
   - component: {fileID: 3282565881719793902}
   - component: {fileID: 390043236220577463}
+  - component: {fileID: 1668454876}
   m_Layer: 0
   m_Name: Win Area
   m_TagString: Win
@@ -148,4 +149,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeea6fd40452f4a49bfc4073b63570c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToUnlocked: 0
+  levelToUnlocked: 1
+--- !u!50 &1668454876
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394562922060201029}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

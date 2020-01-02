@@ -1999,7 +1999,12 @@ PrefabInstance:
     - target: {fileID: 7266508790941654252, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.86
+      value: 3.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 503817403538361949, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.2
       objectReference: {fileID: 0}
     - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
@@ -2022,7 +2027,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544880855}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2034,7 +2039,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &555109813
 GameObject:
   m_ObjectHideFlags: 0
@@ -3333,7 +3338,12 @@ PrefabInstance:
     - target: {fileID: 7266508790941654252, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.56
+      value: 2.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 503817403538361949, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.78
       objectReference: {fileID: 0}
     - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
@@ -4702,11 +4712,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945041169}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -4714,7 +4724,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1953999424 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6387422942296803288, guid: e1471768a9133bd4894e41cfff90224b,
@@ -5285,12 +5295,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5394562920670945426, guid: fb13f7be43dece642a9320eae2715109,
+    - target: {fileID: 390043236220577463, guid: fb13f7be43dece642a9320eae2715109,
         type: 3}
       propertyPath: levelToUnlocked
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 390043236220577463, guid: fb13f7be43dece642a9320eae2715109,
+    - target: {fileID: 5394562920670945426, guid: fb13f7be43dece642a9320eae2715109,
         type: 3}
       propertyPath: levelToUnlocked
       value: 3
