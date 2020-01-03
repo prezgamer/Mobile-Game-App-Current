@@ -2935,6 +2935,7 @@ MonoBehaviour:
     type: 3}
   nullStar: {fileID: 763215309304045441, guid: a1607df4a35bab4438a20832e966da44, type: 3}
   nameOfLevel: Level 6
+  clappingSound: {fileID: 850966430}
   turnOnEffects: 1
   winScreen: {fileID: 140397952}
   loseScreen: {fileID: 140397951}
@@ -3568,6 +3569,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: movingHorizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2570708909309375234, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -3602,16 +3613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: speed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: movingHorizontal
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4059732ac21b1844f87af701974f2c75, type: 3}
@@ -3753,6 +3754,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679692f9283f96a4389233d161c71ec5, type: 3}
+--- !u!82 &850966430 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3204666593324320528, guid: 679692f9283f96a4389233d161c71ec5,
+    type: 3}
+  m_PrefabInstance: {fileID: 850966429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &871505811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4147,6 +4154,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -4.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: movingHorizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2570708909309375234, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -4176,16 +4193,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: speed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: movingHorizontal
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4059732ac21b1844f87af701974f2c75, type: 3}
@@ -4552,6 +4559,21 @@ PrefabInstance:
         type: 3}
       propertyPath: prewarm
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152778004128926618, guid: 5976c70105e143b40a16ddbe011c513c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152778004128926618, guid: 5976c70105e143b40a16ddbe011c513c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.3773585
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152778004128926618, guid: 5976c70105e143b40a16ddbe011c513c,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.3773585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5976c70105e143b40a16ddbe011c513c, type: 3}
@@ -5199,6 +5221,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -4.25
       objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
+        type: 3}
+      propertyPath: movingHorizontal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2570708909309375234, guid: 4059732ac21b1844f87af701974f2c75,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -5233,16 +5265,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: speed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6261023851691788159, guid: 4059732ac21b1844f87af701974f2c75,
-        type: 3}
-      propertyPath: movingHorizontal
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4059732ac21b1844f87af701974f2c75, type: 3}

@@ -9,7 +9,6 @@ public class WindSwipe : MonoBehaviour
     [Header("Touch and Wind Variables")]
     public Slider windPowerIndicator;
     public Vector3 touchPosition;
-    Vector3 startPos, endPos, direction;
     public int windPower;
 
     [Header("Time Variables")]
@@ -22,11 +21,13 @@ public class WindSwipe : MonoBehaviour
     //public bool canPush;
     public bool isPaused = false;
     public bool losesGame = false;
+
+    PlayerForces thePlayer;
     #endregion
 
     private void Start()
     {
-        //StopCreatingWind(); //Disable Wind at the start
+        thePlayer = FindObjectOfType<PlayerForces>();
         StartCoroutine(RunGame());
     }
 
@@ -41,8 +42,29 @@ public class WindSwipe : MonoBehaviour
         rechargeTime = startingRechargeTime; //this resets the time
 
         windPower -= 1;
+
+        //wind goes down with the calculation of x and y directions
+        //CalculateWindPower((int)thePlayer.direction.x, (int)thePlayer.direction.y);
     }
     #endregion
+
+    void CalculateWindPower(int xDirection, int yDirection)
+    {
+        //if x is less than 0
+        if (xDirection > 0)
+        {
+            xDirection = -xDirection;
+        } 
+
+        //if y is less than 0
+        if (yDirection > 0)
+        {
+            yDirection = -yDirection;
+        }
+
+        //decrease wind power with the calculations
+        windPower -= (int)((thePlayer.forceMultiplyer *= thePlayer.direction.x) + (thePlayer.forceMultiplyer *= thePlayer.direction.y));
+    }
 
     #region Player Wind Controls Function
     void WindControls()

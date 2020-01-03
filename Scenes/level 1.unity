@@ -981,6 +981,7 @@ MonoBehaviour:
     type: 3}
   nullStar: {fileID: 763215309304045441, guid: a1607df4a35bab4438a20832e966da44, type: 3}
   nameOfLevel: Level 1
+  clappingSound: {fileID: 1737069089}
   turnOnEffects: 1
   winScreen: {fileID: 1764092084}
   loseScreen: {fileID: 1861946605}
@@ -2815,6 +2816,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679692f9283f96a4389233d161c71ec5, type: 3}
+--- !u!82 &1737069089 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3204666593324320528, guid: 679692f9283f96a4389233d161c71ec5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737069088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764092084 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6387422940499308626, guid: e1471768a9133bd4894e41cfff90224b,

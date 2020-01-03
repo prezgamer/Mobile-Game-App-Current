@@ -14,10 +14,12 @@ public class PlayerForces : MonoBehaviour
 
     public float forceMultiplyer;
 
+    [Header("Time Variables")]
     public float startTimeBefChangeWind;
     public float timeBefChangeWind;
 
-    Vector3 startPos, endPos, direction;
+    [Header("Direction Variables")]
+    public Vector3 startPos, endPos, direction;
     #endregion
 
     private void Start()

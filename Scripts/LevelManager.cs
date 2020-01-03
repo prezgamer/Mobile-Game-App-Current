@@ -22,6 +22,9 @@ public class LevelManager : MonoBehaviour
     string stars;
     string highScore;
 
+    [Header("Audio Source Variables")]
+    public AudioSource clappingSound;
+
     //public Text starCountText; //text for now
     [Header("Boolean Variables")]
     public static bool runGame = true;
@@ -140,6 +143,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    //update the win screen stars count
     public void UpdateWinScreen()
     {
         switch (starCount)
@@ -199,6 +203,7 @@ public class LevelManager : MonoBehaviour
 
     public void WinGame()
     {
+        PlayAudioSource(clappingSound);
         winScreen.SetActive(true);
         starsHolder.SetActive(false);
         Time.timeScale = 0f;
