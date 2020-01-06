@@ -6,9 +6,23 @@ public class RotatingSpikes : MonoBehaviour
 {
     public float rotatingSpeed;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        StartCoroutine(RunGame());
+    }
+
+    void Rotate()
     {
         transform.Rotate(new Vector3(0, 0, rotatingSpeed));
+    }
+
+    IEnumerator RunGame()
+    {
+        while(LevelManager.runGame == true)
+        {
+            Rotate();
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
     }
 }
