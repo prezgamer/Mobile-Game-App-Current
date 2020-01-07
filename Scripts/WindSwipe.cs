@@ -11,6 +11,10 @@ public class WindSwipe : MonoBehaviour
     public Vector3 touchPosition;
     public int windPower;
 
+    [Header("Swipe Variables")]
+    public bool swipe = false;
+    public GameObject newTrail;
+
     [Header("Time Variables")]
     public float startingRechargeTime;
     public float rechargeTime;
@@ -35,7 +39,20 @@ public class WindSwipe : MonoBehaviour
     //creates a ribbon like trail to symbolise the wind direction
     public void CreateWind()
     {
+        //swipe = false;
+        
         GetComponent<TrailRenderer>().emitting = true;
+
+        /*if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)) && swipe == false)
+        {
+            Debug.Log("Trail is created");
+            Instantiate(newTrail, transform.position, Quaternion.identity);
+            swipe = true;
+        } else if ((Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)) && swipe == false)
+        {
+            Destroy(newTrail);
+            swipe = false;
+        }*/
 
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
@@ -50,17 +67,28 @@ public class WindSwipe : MonoBehaviour
 
     void CalculateWindPower(int xDirection, int yDirection)
     {
+        int x;
+        int y;
+
+        x = xDirection;
+        y = yDirection;
+
         //if x is less than 0
-        if (xDirection > 0)
+        if (x > 0)
         {
-            xDirection = -xDirection;
+            x = -x;
         } 
 
         //if y is less than 0
-        if (yDirection > 0)
+        if (y > 0)
         {
-            yDirection = -yDirection;
+            y = -y;
         }
+
+        Debug.Log("Current WindPower Direction " + xDirection + "And" + yDirection);
+        Debug.Log("Direction is now " + x + "And" + y);
+
+        Debug.Log("Updated Current WindPower Direction " + xDirection + "And" + yDirection);
 
         //decrease wind power with the calculations
         windPower -= (int)((thePlayer.forceMultiplyer *= thePlayer.direction.x) + (thePlayer.forceMultiplyer *= thePlayer.direction.y));

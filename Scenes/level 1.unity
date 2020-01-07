@@ -1163,8 +1163,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665702535}
-  - component: {fileID: 665702534}
   - component: {fileID: 665702533}
+  - component: {fileID: 665702534}
   m_Layer: 0
   m_Name: Player Swipe
   m_TagString: Untagged
@@ -1187,6 +1187,9 @@ MonoBehaviour:
   windPowerIndicator: {fileID: 508141374}
   touchPosition: {x: 0, y: 0, z: 0}
   windPower: 100
+  swipe: 0
+  newTrail: {fileID: 6453867062510067456, guid: ebeebc8aadf98d34ba2bb539a1b76b08,
+    type: 3}
   startingRechargeTime: 5
   rechargeTime: 0
   timeBefSpawning: 0

@@ -7,13 +7,16 @@ public class MenuManager : MonoBehaviour
 {
     [Header("Screen Variables")]
     public GameObject mainMenu;
+    public GameObject creditPage;
     public GameObject levelSelectScreen;
     public GameObject clearPlayerprefsScreen;
     public Animator loadingScreen;
 
     private void Start()
     {
-        CloseLevelSelect(); //close level select and open main menu by default
+        //close level select and Credit Page and open main menu by default
+        CloseLevelSelect(); 
+        CloseCreditPage(); 
         clearPlayerprefsScreen.SetActive(false);
     }
 
@@ -35,6 +38,18 @@ public class MenuManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         levelSelectScreen.SetActive(false);
+    }
+
+    public void OpenCreditPage()
+    {
+        creditPage.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
+    public void CloseCreditPage()
+    {
+        creditPage.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     //load level with selected scene name
