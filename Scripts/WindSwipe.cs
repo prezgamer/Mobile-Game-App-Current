@@ -7,7 +7,7 @@ public class WindSwipe : MonoBehaviour
 {
     #region Variables
     [Header("Touch and Wind Variables")]
-    public Slider windPowerIndicator;
+    //public Slider windPowerIndicator;
     public Vector3 touchPosition;
     public int windPower;
 
@@ -56,9 +56,9 @@ public class WindSwipe : MonoBehaviour
 
         touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         this.transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
-        rechargeTime = startingRechargeTime; //this resets the time
+        //rechargeTime = startingRechargeTime; //this resets the time
 
-        windPower -= 1;
+        //windPower -= 1;
 
         //wind goes down with the calculation of x and y directions
         //CalculateWindPower((int)thePlayer.direction.x, (int)thePlayer.direction.y);
@@ -85,11 +85,6 @@ public class WindSwipe : MonoBehaviour
             y = -y;
         }
 
-        Debug.Log("Current WindPower Direction " + xDirection + "And" + yDirection);
-        Debug.Log("Direction is now " + x + "And" + y);
-
-        Debug.Log("Updated Current WindPower Direction " + xDirection + "And" + yDirection);
-
         //decrease wind power with the calculations
         windPower -= (int)((thePlayer.forceMultiplyer *= thePlayer.direction.x) + (thePlayer.forceMultiplyer *= thePlayer.direction.y));
     }
@@ -105,7 +100,7 @@ public class WindSwipe : MonoBehaviour
             {
                 CreateWind(); //just creates a ribbon of the trail renderer
             }
-            else
+            /*else
             {
                 //recharge wind
                 RechargeWindPower();
@@ -113,12 +108,13 @@ public class WindSwipe : MonoBehaviour
         } else
         {
             RechargeWindPower();
+        }*/
         }
     }
     #endregion
 
     #region Wind Power Check Functions
-    void CheckWindPower()
+    /*void CheckWindPower()
     {
         if (windPower <= 0)
         {
@@ -140,16 +136,16 @@ public class WindSwipe : MonoBehaviour
             rechargeTime -= Time.deltaTime;
             windPower += 1;
         }
-    }
+    }*/
     #endregion
 
     IEnumerator RunGame()
     {
         while(LevelManager.runGame == true)
         {
-            windPowerIndicator.value = windPower;
+            //windPowerIndicator.value = windPower;
 
-            CheckWindPower(); //check the wind current power, switch if nessasary
+            //CheckWindPower(); //check the wind current power, switch if nessasary
 
             WindControls(); //wind controls
 

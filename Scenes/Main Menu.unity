@@ -560,7 +560,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &85654103
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &375816872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4232,7 +4232,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clear Playerprefs
+  m_Text: Clear Data
 --- !u!222 &980663421
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7265,7 +7265,8 @@ MonoBehaviour:
     -Level Design Done by Andrew Foo
 
 
-    -Audio and Music Done by: '
+    -Audio and Music Done by: Alterr(Clapping Sounds), Terhen(Balloon Pop Sound),
+    ProjectsU012(Star Collect Sound), 1urker(Box Hit Sound)'
 --- !u!222 &1838150621
 CanvasRenderer:
   m_ObjectHideFlags: 0
