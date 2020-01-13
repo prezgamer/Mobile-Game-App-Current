@@ -1408,11 +1408,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b474e3bbc6ec2d41b9d0720fe9ab7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windPowerIndicator: {fileID: 1953999424}
   touchPosition: {x: 0, y: 0, z: 0}
   windPower: 100
+  swipe: 0
+  newTrail: {fileID: 0}
   startingRechargeTime: 5
   rechargeTime: 0
+  timeBefDespawn: 0
+  startTimeBefDespawn: 0.2
   timeBefSpawning: 0
   timeBefChangeWind: 5
   isPaused: 0
@@ -3326,18 +3329,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2bfd22992f48d745aa1d7338b48a521, type: 3}
---- !u!114 &1953999424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6387422942296803288, guid: e1471768a9133bd4894e41cfff90224b,
-    type: 3}
-  m_PrefabInstance: {fileID: 140397949}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2071525383
 PrefabInstance:
   m_ObjectHideFlags: 0

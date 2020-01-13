@@ -1334,6 +1334,8 @@ MonoBehaviour:
   newTrail: {fileID: 0}
   startingRechargeTime: 5
   rechargeTime: 0
+  timeBefDespawn: 0
+  startTimeBefDespawn: 0.2
   timeBefSpawning: 0.2
   timeBefChangeWind: 5
   isPaused: 0
