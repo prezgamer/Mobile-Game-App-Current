@@ -28,7 +28,13 @@ public class LevelSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateLevels();
+        //unlock the levels respectively
+        UpdateLevels(0);
+        UpdateLevels(1);
+        UpdateLevels(2);
+        UpdateLevels(3);
+        UpdateLevels(4);
+        UpdateLevels(5);
 
         PlayerPrefsFunctions();
     }
@@ -60,12 +66,10 @@ public class LevelSelection : MonoBehaviour
         PlayerPrefs.GetInt("Level 6 Stars", starsHighscore[5]);
 
         //check if less stars does not override the max stars collected for each level
-        CheckStarCount("Level 1 Stars", "Max Level 1 Stars");
-        CheckStarCount("Level 2 Stars", "Max Level 2 Stars");
-        CheckStarCount("Level 3 Stars", "Max Level 3 Stars");
-        CheckStarCount("Level 4 Stars", "Max Level 4 Stars");
-        CheckStarCount("Level 5 Stars", "Max Level 5 Stars");
-        CheckStarCount("Level 6 Stars", "Max Level 6 Stars");
+        for (int levelNum = 1; levelNum <= 6; levelNum++)
+        {
+            CheckStarCount("Level " + levelNum + "Stars", "Max Level " + levelNum + " Stars");
+        }
 
         //update the stars based on each level collection of stars
         UpdateStars("Level 1 Stars", 0);
@@ -131,53 +135,14 @@ public class LevelSelection : MonoBehaviour
     }
 
     //updates the levels that have been unlocked
-    public void UpdateLevels()
+    public void UpdateLevels(int numOfLevelsUnlocked)
     {
-        Debug.Log("Level Unlocked: " + levelNum);
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 0)
+        if (PlayerPrefs.GetInt("Level Unlocked") == numOfLevelsUnlocked)
         {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-        }
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 1)
-        {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-            UnlockedLevels(unlockedLevels[1], lockedLevels[1]); //unlock level 2
-        }
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 2)
-        {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-            UnlockedLevels(unlockedLevels[1], lockedLevels[1]); //unlock level 2
-            UnlockedLevels(unlockedLevels[2], lockedLevels[2]); //unlock level 3
-        }
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 3)
-        {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-            UnlockedLevels(unlockedLevels[1], lockedLevels[1]); //unlock level 2
-            UnlockedLevels(unlockedLevels[2], lockedLevels[2]); //unlock level 3
-            UnlockedLevels(unlockedLevels[3], lockedLevels[3]); //unlock level 4
-        }
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 4)
-        {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-            UnlockedLevels(unlockedLevels[1], lockedLevels[1]); //unlock level 2
-            UnlockedLevels(unlockedLevels[2], lockedLevels[2]); //unlock level 3
-            UnlockedLevels(unlockedLevels[3], lockedLevels[3]); //unlock level 4
-            UnlockedLevels(unlockedLevels[4], lockedLevels[4]); //unlock level 5
-        }
-
-        if (PlayerPrefs.GetInt("Level Unlocked") == 5)
-        {
-            UnlockedLevels(unlockedLevels[0], lockedLevels[0]); //unlock level 1
-            UnlockedLevels(unlockedLevels[1], lockedLevels[1]); //unlock level 2
-            UnlockedLevels(unlockedLevels[2], lockedLevels[2]); //unlock level 3
-            UnlockedLevels(unlockedLevels[3], lockedLevels[3]); //unlock level 4
-            UnlockedLevels(unlockedLevels[4], lockedLevels[4]); //unlock level 5
-            UnlockedLevels(unlockedLevels[5], lockedLevels[5]); //unlock level 6
+            for (int levelUnlock = 0; levelUnlock <= numOfLevelsUnlocked; levelUnlock++)
+            {
+                UnlockedLevels(unlockedLevels[levelUnlock], lockedLevels[levelUnlock]); //unlock level 1
+            }
         }
     }
     #endregion

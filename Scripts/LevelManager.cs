@@ -215,7 +215,6 @@ public class LevelManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene(); //get the current active scene
 
         SceneManager.LoadScene(currentScene.name); //load the current scene by its name
-        //turnOnEffects = false;
         Time.timeScale = 1f; //reset the time scale back to 1
     }
 
@@ -224,14 +223,12 @@ public class LevelManager : MonoBehaviour
         turnOnEffects = false;
         SceneManager.LoadScene("Main Menu"); //return to main menu
         Time.timeScale = 1f;
-        //turnOnEffects = false;
     }
 
     public void Continue(string nextLevelName)
     {
         turnOnEffects = false;
         SceneManager.LoadScene(nextLevelName); //load next level scene by its name
-        //turnOnEffects = false;
         Time.timeScale = 1f;
     }
     #endregion
